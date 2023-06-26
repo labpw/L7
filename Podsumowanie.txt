@@ -14,3 +14,8 @@
  - trzeba zarejestrowac ścieżki nawigacji w pliku AppShell.xaml.cs
 
 
+ 7) Dodaliśmy obsługę CRUDa dla bazy danych
+8) przekazaliśmy jako parametr referencje viewModelu ProductsViewModel do innego viewModelu ProductDetailsViewModel
+ - to nam pozwoliło na kontrolowanie jego viewmodelu z innego viewmodelu
+
+9) wstrzykneliśmy serwisy do obsługi połączenia internetowego, geolokalizacji oraz obsługi map. 
