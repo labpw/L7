@@ -3,29 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04WeatherForecastAPI.Client", "P04WeatherForecastAPI.Client\P04WeatherForecastAPI.Client.csproj", "{F5FCB347-F20B-4A0B-85A4-AABBBCB65052}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P04WeatherForecastAPI.Client", "P04WeatherForecastAPI.Client\P04WeatherForecastAPI.Client.csproj", "{F5FCB347-F20B-4A0B-85A4-AABBBCB65052}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05Shop.API", "P05Shop.API\P05Shop.API.csproj", "{6187F360-FC75-4FD5-8F02-EBF24703D9E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P05Shop.API", "P05Shop.API\P05Shop.API.csproj", "{6187F360-FC75-4FD5-8F02-EBF24703D9E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P06Shop.Shared", "P06Shop.Shared\P06Shop.Shared.csproj", "{8DB72B04-2EB0-4351-A07F-D48065625F58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P06Shop.Shared", "P06Shop.Shared\P06Shop.Shared.csproj", "{8DB72B04-2EB0-4351-A07F-D48065625F58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P07Shop.DataSeeder", "P07Shop.DataSeeder\P07Shop.DataSeeder.csproj", "{84CCAF81-BC48-4044-A814-E248357C675F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P07Shop.DataSeeder", "P07Shop.DataSeeder\P07Shop.DataSeeder.csproj", "{84CCAF81-BC48-4044-A814-E248357C675F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P08ShopWebApp.Client", "P08ShopWebApp.Client\P08ShopWebApp.Client.csproj", "{1A078FF1-D2AD-4B63-8CAE-9B2F16D09222}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P08ShopWebApp.Client", "P08ShopWebApp.Client\P08ShopWebApp.Client.csproj", "{1A078FF1-D2AD-4B63-8CAE-9B2F16D09222}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P09ShopWebAPPMVC.Client", "P09ShopWebAPPMVC.Client\P09ShopWebAPPMVC.Client.csproj", "{166DF9A2-673A-48D5-99A1-2D8B0C341BCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P09ShopWebAPPMVC.Client", "P09ShopWebAPPMVC.Client\P09ShopWebAPPMVC.Client.csproj", "{166DF9A2-673A-48D5-99A1-2D8B0C341BCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P10ShopWebAPPMVC.Client", "P10ShopWebAPPMVC.Client\P10ShopWebAPPMVC.Client.csproj", "{A1D19773-7C3F-4E2A-B9BA-98FFF60FB63C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P10ShopWebAPPMVC.Client", "P10ShopWebAPPMVC.Client\P10ShopWebAPPMVC.Client.csproj", "{A1D19773-7C3F-4E2A-B9BA-98FFF60FB63C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P11BlazorWebAssembly.Client", "P11BlazorWebAssembly.Client\P11BlazorWebAssembly.Client.csproj", "{69F00A90-489E-4546-AF8C-0051F842C118}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P11BlazorWebAssembly.Client", "P11BlazorWebAssembly.Client\P11BlazorWebAssembly.Client.csproj", "{69F00A90-489E-4546-AF8C-0051F842C118}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P12MAUI.Client", "P12MAUI.Client\P12MAUI.Client.csproj", "{29706940-79E3-480F-93A0-71B91EB525DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F5FCB347-F20B-4A0B-85A4-AABBBCB65052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -60,5 +59,17 @@ Global
 		{69F00A90-489E-4546-AF8C-0051F842C118}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69F00A90-489E-4546-AF8C-0051F842C118}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69F00A90-489E-4546-AF8C-0051F842C118}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29706940-79E3-480F-93A0-71B91EB525DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29706940-79E3-480F-93A0-71B91EB525DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29706940-79E3-480F-93A0-71B91EB525DC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{29706940-79E3-480F-93A0-71B91EB525DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29706940-79E3-480F-93A0-71B91EB525DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29706940-79E3-480F-93A0-71B91EB525DC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94303BD1-1B19-4518-9F26-D278D6DD914B}
 	EndGlobalSection
 EndGlobal

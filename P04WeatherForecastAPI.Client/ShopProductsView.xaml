@@ -8,7 +8,7 @@
         Title="ShopProductsWindow" Height="450" Width="400">
 
     <StackPanel>
-        <Button Grid.Row="3" 
+        <Button  
         Command="{Binding NewCommand}" 
           Content="New Product" >
             <Button.Template>
