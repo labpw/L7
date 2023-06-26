@@ -18,26 +18,24 @@ using System.Windows;
 namespace P04WeatherForecastAPI.Client.ViewModels
 {
    
-    public partial class ProductsViewModel : ObservableObject  //dotnet add package CommunityToolkit.Mvvm  
+ public partial class ProductsViewModel : ObservableObject
     {
         private readonly IProductService _productService;
         private readonly ProductDetailsView _productDetailsView;
         private readonly IMessageDialogService _messageDialogService;
-      //  private readonly ISpeechService _speechService;
-
+        private readonly IConnectivity _connectivity;
         public ObservableCollection<Product> Products { get; set; }
-
 
         [ObservableProperty]
         private Product selectedProduct;
 
-        public ProductsViewModel(IProductService productService, ProductDetailsView productDetailsView,
-            IMessageDialogService messageDialogService)
+        public ProductsViewModel(IProductService productService, ProductDetailsView productDetailsView, IMessageDialogService messageDialogService,
+            IConnectivity connectivity)
         {
             _messageDialogService = messageDialogService;
-         
             _productDetailsView = productDetailsView;
             _productService = productService;
+            _connectivity = connectivity; // set the _connectivity field
             Products = new ObservableCollection<Product>();
             GetProducts();
         }
@@ -45,56 +43,59 @@ namespace P04WeatherForecastAPI.Client.ViewModels
         public async Task GetProducts()
         {
             Products.Clear();
+            if (_connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                _messageDialogService.ShowMessage("Internet not available!");
+                return;
+            }
+
             var productsResult = await _productService.GetProductsAsync();
             if (productsResult.Success)
+            {
                 foreach (var p in productsResult.Data)
+                {
                     Products.Add(p);
+                }
+            }
             else
+            {
                 _messageDialogService.ShowMessage(productsResult.Message);
+            }
         }
-
-
-     
-      
 
         [RelayCommand]
         public async Task ShowDetails(Product product)
         {
+            if (_connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                _messageDialogService.ShowMessage("Internet not available!");
+                return;
+            }
 
-            // Shell.Current.GoToAsync($"productdetails/{product.Id}");
-            await Shell.Current.GoToAsync(nameof(ProductDetailsView),true, new Dictionary<string, object>
+            await Shell.Current.GoToAsync(nameof(ProductDetailsView), true, new Dictionary<string, object>
             {
                 {"Product", product },
                 {nameof(ProductsViewModel), this }
             });
-
-            //    _productDetailsView.Show();
-            //    _productDetailsView.DataContext = this;
-            //selectedProduct = product;
-            //OnPropertyChanged("SelectedProduct");
             SelectedProduct = product;
         }
-
-
-     
 
         [RelayCommand]
         public async Task New()
         {
+            if (_connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                _messageDialogService.ShowMessage("Internet not available!");
+                return;
+            }
+
             SelectedProduct = new Product();
             await Shell.Current.GoToAsync(nameof(ProductDetailsView), true, new Dictionary<string, object>
             {
                 {"Product", SelectedProduct },
                 {nameof(ProductsViewModel), this }
             });
-            //    _productDetailsView.Show();
-            //     _productDetailsView.DataContext = this;
-            //selectedProduct = new Product();
-            //OnPropertyChanged("SelectedProduct");
-           
         }
-
-       
 
     }
 }

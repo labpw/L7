@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using P04WeatherForecastAPI.Client.ViewModels;
 using P06Shop.Shared.Configuration;
 using P06Shop.Shared.MessageBox;
@@ -64,6 +65,9 @@ namespace P12MAUI.Client
 
         private static void ConfigureAppServices(IServiceCollection services, AppSettings appSettings)
         {
+            services.AddSingleton<IConnectivity>(Connectivity.Current);
+            services.AddSingleton<IGeolocation>(Geolocation.Default);
+            services.AddSingleton<IMap>(Map.Default);
 
             // konfiguracja serwisów 
             services.AddSingleton<IProductService, ProductService>();

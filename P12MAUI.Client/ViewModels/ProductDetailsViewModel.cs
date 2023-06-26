@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Maui.ApplicationModel;
 using P04WeatherForecastAPI.Client.ViewModels;
 using P06Shop.Shared.MessageBox;
 using P06Shop.Shared.Services.ProductService;
@@ -18,23 +19,55 @@ namespace P12MAUI.Client.ViewModels
     {
         private readonly IProductService _productService;
         private readonly IMessageDialogService _messageDialogService;
+        private readonly IGeolocation _geolocation;
+        private readonly IMap _map;
         private ProductsViewModel _productViewModel;
 
-        public ProductsViewModel ProductsViewModel {
-            get 
+        public ProductDetailsViewModel(IProductService productService, IMessageDialogService messageDialogService, IGeolocation geolocation, IMap map)
+        {
+            _map = map;
+            _productService = productService;
+            _messageDialogService = messageDialogService;
+            _geolocation = geolocation;
+
+            
+        }
+
+
+
+
+        [RelayCommand]
+        public async Task GetLocation()
+        {
+            var location = await _geolocation.GetLastKnownLocationAsync();
+
+            try
+            {
+                await _map.OpenAsync(52.23564245654427, 21.0112328246909, new MapLaunchOptions
+                {
+                    Name = "ALX",
+                    NavigationMode = NavigationMode.None
+                });
+            }
+            catch (Exception)
+            {
+                 _messageDialogService.ShowMessage("Error opening map");
+            }
+            
+        }
+
+        public ProductsViewModel ProductsViewModel
+        {
+            get
             {
                 return _productViewModel;
-            } set
+            }
+            set
             {
                 _productViewModel = value;
             }
         }
 
-        public ProductDetailsViewModel(IProductService productService, IMessageDialogService messageDialogService)
-        {
-            _productService = productService;
-            _messageDialogService = messageDialogService;
-        }
 
         [ObservableProperty]
         Product product;
@@ -42,7 +75,7 @@ namespace P12MAUI.Client.ViewModels
         public async Task DeleteProduct()
         {
             await _productService.DeleteProductAsync(product.Id);
-             await _productViewModel.GetProducts();
+            await _productViewModel.GetProducts();
         }
 
         public async Task CreateProduct()
@@ -87,7 +120,7 @@ namespace P12MAUI.Client.ViewModels
             {
                 CreateProduct();
                 await Shell.Current.GoToAsync("../", true);
-               
+
             }
             else
             {

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="P12MAUI.Client.ProductDetailsView"
-             Title="ProductDetailsView">
+             Title="{Binding Product.Title}">
     <VerticalStackLayout>
         <Grid BindingContext="{Binding Product}"  Margin="10">
             <Grid.RowDefinitions>
@@ -47,6 +47,12 @@
             <Button  
         Command="{Binding DeleteCommand}" 
            Text="Delete" >
+
+            </Button>
+
+            <Button  
+        Command="{Binding GetLocationCommand}" 
+           Text="GetLocation" >
 
             </Button>
         </HorizontalStackLayout>
