@@ -1,0 +1,14 @@
+﻿
+1) poznalismy blazor 
+ - sposoby komunikacji c#-html 
+  - prosty binding 
+  - binding przez formularz (z walidacją)
+
+
+ 2) dodalismy referencje do seriwsów 
+ 3) skonfigurowalismy serwisy w program.cs
+ 4) stworzylismy operacje CRUD - korzystajace z serwisow 
+ 5) wyniesienie czesci formularza produktu od osobnego komponentu
+ 6) Dodanie stronicowania po stronie klienta
+ 7) dodalismy stronicowanie i filtorwanie po stronie servera 
+ 8) dodanie relacji 1-1, 1-* i *-*
