@@ -19,7 +19,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P10ShopWebAPPMVC.Client", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P11BlazorWebAssembly.Client", "P11BlazorWebAssembly.Client\P11BlazorWebAssembly.Client.csproj", "{69F00A90-489E-4546-AF8C-0051F842C118}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P12MAUI.Client", "P12MAUI.Client\P12MAUI.Client.csproj", "{29706940-79E3-480F-93A0-71B91EB525DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P12MAUI.Client", "P12MAUI.Client\P12MAUI.Client.csproj", "{29706940-79E3-480F-93A0-71B91EB525DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{54B0D6BE-88ED-4FE3-B855-155D474428B6}"
+	ProjectSection(SolutionItems) = preProject
+		Podsumowanie.txt = Podsumowanie.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

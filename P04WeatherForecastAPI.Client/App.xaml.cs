@@ -60,7 +60,9 @@ namespace P04WeatherForecastAPI.Client
             //Microsoft.Extensions.Options.ConfigurationExtensions
             var appSettings = _configuration.GetSection(nameof(AppSettings));
             var appSettingsSection = appSettings.Get<AppSettings>();
-            services.Configure<AppSettings>(appSettings);
+         
+            // services.Configure<AppSettings>(appSettings);
+            services.AddSingleton(appSettingsSection);
             return appSettingsSection;
         }
 

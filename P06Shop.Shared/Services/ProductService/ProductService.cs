@@ -21,10 +21,10 @@ namespace P06Shop.Shared.Services.ProductService
 
         private readonly HttpClient _httpClient;
         private readonly AppSettings _appSettings;
-        public ProductService(HttpClient httpClient, IOptions<AppSettings> appSettings)
+        public ProductService(HttpClient httpClient, AppSettings appSettings) //IOptions<AppSettings> appSettings
         {
             _httpClient = httpClient;
-            _appSettings = appSettings.Value;
+            _appSettings = appSettings;
         }
 
         public async Task<ServiceResponse<Product>> CreateProductAsync(Product product)

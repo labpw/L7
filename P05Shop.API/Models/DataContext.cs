@@ -85,7 +85,7 @@ namespace P05Shop.API.Models
 
 // dotnet ef migrations add [nazwa_migracji]
 // dotnet ef database update 
-
+// dotnet ef database update -- --environment Production
 
 // cofniecie migraji niezaplikowanych 
 //dotnet ef migrations remove
