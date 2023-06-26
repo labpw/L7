@@ -49,11 +49,11 @@ namespace P12MAUI.Client
             // services.Configure<AppSettings>(appSettings);
             var appSettingsSection = new AppSettings()
             {
-               // BaseAPIUrl = "http://localhost:5093",
+                //BaseAPIUrl = "http://localhost:5093",
                 BaseAPIUrl = "https://alxshopapi.azurewebsites.net",
                 BaseProductEndpoint = new BaseProductEndpoint()
                 {
-                    Base_url = "/api/Product",
+                    Base_url = "api/Product/",
                     GetAllProductsEndpoint = "",
                 },
             };

@@ -5,6 +5,7 @@ using P06Shop.Shared.MessageBox;
 using P06Shop.Shared.Services.ProductService;
 using P06Shop.Shared.Shop;
 using P12MAUI.Client;
+using P12MAUI.Client.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -53,45 +54,8 @@ namespace P04WeatherForecastAPI.Client.ViewModels
         }
 
 
-        public async Task CreateProduct()
-        {
-            var newProduct = new Product()
-            {
-                Title = selectedProduct.Title,
-                Description = selectedProduct.Description,
-                Barcode = selectedProduct.Barcode,
-                Price = selectedProduct.Price,
-                ReleaseDate = selectedProduct.ReleaseDate,
-            };
-
-            var result =  await _productService.CreateProductAsync(newProduct);
-            if (result.Success)
-                await GetProducts();
-            else
-                _messageDialogService.ShowMessage(result.Message);  
-        }
-
-        public async Task UpdateProduct()
-        {
-            var productToUpdate = new Product()
-            {
-                Id = selectedProduct.Id,
-                Title = selectedProduct.Title,
-                Description = selectedProduct.Description,
-                Barcode = selectedProduct.Barcode,
-                Price = selectedProduct.Price,
-                ReleaseDate = selectedProduct.ReleaseDate,
-            };
-
-            await _productService.UpdateProductAsync(productToUpdate);
-            GetProducts();
-        }
-
-        public async Task DeleteProduct()
-        {
-            await _productService.DeleteProductAsync(selectedProduct.Id);
-            await GetProducts();
-        }
+     
+      
 
         [RelayCommand]
         public async Task ShowDetails(Product product)
@@ -100,7 +64,8 @@ namespace P04WeatherForecastAPI.Client.ViewModels
             // Shell.Current.GoToAsync($"productdetails/{product.Id}");
             await Shell.Current.GoToAsync(nameof(ProductDetailsView),true, new Dictionary<string, object>
             {
-                {"Product", product }
+                {"Product", product },
+                {nameof(ProductsViewModel), this }
             });
 
             //    _productDetailsView.Show();
@@ -111,34 +76,22 @@ namespace P04WeatherForecastAPI.Client.ViewModels
         }
 
 
-        [RelayCommand]
-        public async Task Save()
-        {
-            if (selectedProduct.Id == 0)
-            {
-                CreateProduct();
-            }
-            else
-            {
-                UpdateProduct();
-            }
-
-        }
-
-        [RelayCommand]
-        public async Task Delete()
-        {
-            DeleteProduct();
-        }
+     
 
         [RelayCommand]
         public async Task New()
         {
-       //    _productDetailsView.Show();
-       //     _productDetailsView.DataContext = this;
+            SelectedProduct = new Product();
+            await Shell.Current.GoToAsync(nameof(ProductDetailsView), true, new Dictionary<string, object>
+            {
+                {"Product", SelectedProduct },
+                {nameof(ProductsViewModel), this }
+            });
+            //    _productDetailsView.Show();
+            //     _productDetailsView.DataContext = this;
             //selectedProduct = new Product();
             //OnPropertyChanged("SelectedProduct");
-            SelectedProduct = new Product(); 
+           
         }
 
        

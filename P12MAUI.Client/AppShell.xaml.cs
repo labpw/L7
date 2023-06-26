@@ -7,6 +7,7 @@
             InitializeComponent();
 
             Routing.RegisterRoute(nameof(ProductDetailsView), typeof(ProductDetailsView));
+         
         }
     }
 }

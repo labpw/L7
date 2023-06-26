@@ -4,6 +4,26 @@
              x:Class="P12MAUI.Client.MainPage"
              xmlns:viewmodel="clr-namespace:P04WeatherForecastAPI.Client.ViewModels"
              >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="SteelBlue" />
+                <Setter Property="Padding" Value="10,5" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style x:Key="HeaderLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="DataLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
 
     <ScrollView>
         <VerticalStackLayout
